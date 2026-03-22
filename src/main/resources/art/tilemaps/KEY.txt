@@ -1,0 +1,27 @@
+big tree w/tree under it: 0410 0498
+                          0411 0499
+
+big tree w/no tree under it: 0410 0498
+                             0412 0500
+
+big tree w/no tree under it weird right shadow: 0410 0498
+                                                0412 0676
+
+big tree w/no tree under it weird left shadow: 0410 0498
+                                               0588 0500
+
+grass : 0088
+- tree under on right : 0585
+- tree under on left  : 0673
+
+pokemon grass : 0441
+- tree under on right : 0584
+- tree under on left  : 0672
+
+path tile square
+0058 0146 0234
+0059 0147 0235
+0060 0148 0236 
+
+shadowless treetop
+0586 0674 

@@ -1,0 +1,27 @@
+fix sideways walking animation to conform to this: https://www.youtube.com/watch?v=a20MzmyW9PA
+walking ^ vs running: https://www.youtube.com/watch?v=pmRYBmKWWkw
+
+could make a grass listener which sits on top of the grass tiles and prevents promotion issues from tile layer to tile layer
+w/hash
+FPS: 22279917
+FPS: 22234003
+FPS: 22217824
+FPS: 22206229
+FPS: 22207324
+FPS: 22253495
+FPS: 22189347
+FPS: 22364982
+FPS: 22022179
+
+w/o hash
+FPS: 22476929
+FPS: 22478860
+FPS: 22386817
+FPS: 22440136
+FPS: 22394233
+FPS: 22490775
+FPS: 21292265
+FPS: 22453774
+FPS: 22094309
+
+game runs at 2.2 million fps rn
