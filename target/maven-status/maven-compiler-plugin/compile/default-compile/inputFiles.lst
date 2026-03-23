@@ -14,6 +14,17 @@
 /Users/maguilar/Documents/Pokemon Emerald in Java MA Cursor/jpokemon/src/main/java/com/pokemon/gui/entities/PlayerRender.java
 /Users/maguilar/Documents/Pokemon Emerald in Java MA Cursor/jpokemon/src/main/java/com/pokemon/gui/entities/TileStepListener.java
 /Users/maguilar/Documents/Pokemon Emerald in Java MA Cursor/jpokemon/src/main/java/com/pokemon/gui/mapfiles/MapFile.java
+/Users/maguilar/Documents/Pokemon Emerald in Java MA Cursor/jpokemon/src/main/java/com/pokemon/gui/text/emerald/EmeraldCharCodec.java
+/Users/maguilar/Documents/Pokemon Emerald in Java MA Cursor/jpokemon/src/main/java/com/pokemon/gui/text/emerald/EmeraldCharacters.java
+/Users/maguilar/Documents/Pokemon Emerald in Java MA Cursor/jpokemon/src/main/java/com/pokemon/gui/text/emerald/EmeraldDialogueFrameRenderer.java
+/Users/maguilar/Documents/Pokemon Emerald in Java MA Cursor/jpokemon/src/main/java/com/pokemon/gui/text/emerald/EmeraldGlyphSource.java
+/Users/maguilar/Documents/Pokemon Emerald in Java MA Cursor/jpokemon/src/main/java/com/pokemon/gui/text/emerald/EmeraldTextAssetPaths.java
+/Users/maguilar/Documents/Pokemon Emerald in Java MA Cursor/jpokemon/src/main/java/com/pokemon/gui/text/emerald/EmeraldTextConstants.java
+/Users/maguilar/Documents/Pokemon Emerald in Java MA Cursor/jpokemon/src/main/java/com/pokemon/gui/text/emerald/EmeraldTextPrinter.java
+/Users/maguilar/Documents/Pokemon Emerald in Java MA Cursor/jpokemon/src/main/java/com/pokemon/gui/text/emerald/ImageDialogueFrameRenderer.java
+/Users/maguilar/Documents/Pokemon Emerald in Java MA Cursor/jpokemon/src/main/java/com/pokemon/gui/text/emerald/ImageEmeraldGlyphSource.java
+/Users/maguilar/Documents/Pokemon Emerald in Java MA Cursor/jpokemon/src/main/java/com/pokemon/gui/text/emerald/PlaceholderDialogueFrameRenderer.java
+/Users/maguilar/Documents/Pokemon Emerald in Java MA Cursor/jpokemon/src/main/java/com/pokemon/gui/text/emerald/PlaceholderEmeraldGlyphSource.java
 /Users/maguilar/Documents/Pokemon Emerald in Java MA Cursor/jpokemon/src/main/java/com/pokemon/gui/tiles/BackgroundTile.java
 /Users/maguilar/Documents/Pokemon Emerald in Java MA Cursor/jpokemon/src/main/java/com/pokemon/gui/tiles/RenderStack.java
 /Users/maguilar/Documents/Pokemon Emerald in Java MA Cursor/jpokemon/src/main/java/com/pokemon/gui/tiles/Texture.java

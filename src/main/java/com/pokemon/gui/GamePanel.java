@@ -138,9 +138,10 @@ public class GamePanel extends JPanel implements Runnable {
     /** Update all game actors and systems for the current tick. */
     public void update() {
         if (messageOverlay.isBlocking()) {
-            if (keyHandler.consumeMessageDismissPress()) {
-                messageOverlay.dismiss();
+            if (keyHandler.consumeMessageOverlayAdvance()) {
+                messageOverlay.onAdvancePressed();
             }
+            messageOverlay.tick();
             return;
         }
 

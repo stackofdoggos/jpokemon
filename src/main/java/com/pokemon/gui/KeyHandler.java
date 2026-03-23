@@ -73,6 +73,13 @@ public class KeyHandler implements KeyListener {
      * Clears and returns true if Space, E, or Enter was pressed (for closing UI).
      */
     public boolean consumeMessageDismissPress() {
+        return consumeMessageOverlayAdvance();
+    }
+
+    /**
+     * One-shot confirm for Emerald message overlay: skip typewriter, clear pauses, or dismiss.
+     */
+    public boolean consumeMessageOverlayAdvance() {
         if (interactPressPending || confirmPressPending) {
             interactPressPending = false;
             confirmPressPending = false;

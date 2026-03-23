@@ -9,12 +9,19 @@ import com.pokemon.gui.entities.EntityRender.Direction;
 
 /**
  * Static registry of overworld locations. Includes a paired-warp demo on Route
- * 101 using the same tile data twice with different spawns.
+ * 101 (same tile data, different spawns). Warps are placed off the main spawn
+ * row so walking left from start does not hit a warp in four steps.
  */
 public final class LocationRegistry {
 
     public static final String ROUTE_101_MAIN = "route101_main";
     public static final String ROUTE_101_ALT = "route101_alt";
+
+    /** Demo warp tiles — not on spawn row (11) where players first walk. */
+    private static final int MAIN_TO_ALT_TILE_COL = 5;
+    private static final int MAIN_TO_ALT_TILE_ROW = 5;
+    private static final int ALT_TO_MAIN_TILE_COL = 30;
+    private static final int ALT_TO_MAIN_TILE_ROW = 5;
 
     private static final Map<String, Location> BY_ID = new HashMap<>();
 
@@ -30,7 +37,7 @@ public final class LocationRegistry {
                 25 * ts,
                 10 * ts,
                 Direction.DOWN,
-                List.of(new Warp(25, 9, ROUTE_101_MAIN)),
+                List.of(new Warp(ALT_TO_MAIN_TILE_COL, ALT_TO_MAIN_TILE_ROW, ROUTE_101_MAIN)),
                 route101Signs);
 
         Location main = new Location(
@@ -40,7 +47,7 @@ public final class LocationRegistry {
                 20 * ts,
                 10 * ts,
                 Direction.DOWN,
-                List.of(new Warp(16, 11, ROUTE_101_ALT)),
+                List.of(new Warp(MAIN_TO_ALT_TILE_COL, MAIN_TO_ALT_TILE_ROW, ROUTE_101_ALT)),
                 route101Signs);
 
         BY_ID.put(main.getId(), main);
