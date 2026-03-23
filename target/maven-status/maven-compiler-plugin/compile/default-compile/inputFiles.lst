@@ -2,10 +2,13 @@
 /Users/maguilar/Documents/Pokemon Emerald in Java MA Cursor/jpokemon/src/main/java/com/pokemon/Main.java
 /Users/maguilar/Documents/Pokemon Emerald in Java MA Cursor/jpokemon/src/main/java/com/pokemon/engine/levels/Location.java
 /Users/maguilar/Documents/Pokemon Emerald in Java MA Cursor/jpokemon/src/main/java/com/pokemon/engine/levels/LocationRegistry.java
+/Users/maguilar/Documents/Pokemon Emerald in Java MA Cursor/jpokemon/src/main/java/com/pokemon/engine/levels/SignPost.java
 /Users/maguilar/Documents/Pokemon Emerald in Java MA Cursor/jpokemon/src/main/java/com/pokemon/engine/levels/Warp.java
 /Users/maguilar/Documents/Pokemon Emerald in Java MA Cursor/jpokemon/src/main/java/com/pokemon/gui/GamePanel.java
 /Users/maguilar/Documents/Pokemon Emerald in Java MA Cursor/jpokemon/src/main/java/com/pokemon/gui/KeyHandler.java
+/Users/maguilar/Documents/Pokemon Emerald in Java MA Cursor/jpokemon/src/main/java/com/pokemon/gui/MessageOverlay.java
 /Users/maguilar/Documents/Pokemon Emerald in Java MA Cursor/jpokemon/src/main/java/com/pokemon/gui/OverworldScene.java
+/Users/maguilar/Documents/Pokemon Emerald in Java MA Cursor/jpokemon/src/main/java/com/pokemon/gui/SignInteractionHelper.java
 /Users/maguilar/Documents/Pokemon Emerald in Java MA Cursor/jpokemon/src/main/java/com/pokemon/gui/entities/CollisionChecker.java
 /Users/maguilar/Documents/Pokemon Emerald in Java MA Cursor/jpokemon/src/main/java/com/pokemon/gui/entities/EntityRender.java
 /Users/maguilar/Documents/Pokemon Emerald in Java MA Cursor/jpokemon/src/main/java/com/pokemon/gui/entities/PlayerRender.java

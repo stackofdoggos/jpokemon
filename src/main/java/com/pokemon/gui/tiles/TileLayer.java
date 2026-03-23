@@ -31,6 +31,14 @@ public class TileLayer {
         return tiles[row][column];
     }
 
+    public int getMapFileHeightInTiles() {
+        return mapFile.getMapFileHeightInTiles();
+    }
+
+    public int getMapFileWidthInTiles() {
+        return mapFile.getMapFileWidthInTiles();
+    }
+
     public int[] getCoordinatesOfTile(BackgroundTile tile) {
 
         // in the format row, column

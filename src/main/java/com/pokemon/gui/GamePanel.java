@@ -42,6 +42,7 @@ public class GamePanel extends JPanel implements Runnable {
     private Thread gameThread; // used for ticking
     private final PlayerRender player;
     private final OverworldScene overworldScene;
+    private final MessageOverlay messageOverlay = new MessageOverlay();
 
     public GamePanel() {
         this.player = new PlayerRender(this, keyHandler);
@@ -136,10 +137,26 @@ public class GamePanel extends JPanel implements Runnable {
 
     /** Update all game actors and systems for the current tick. */
     public void update() {
+        if (messageOverlay.isBlocking()) {
+            if (keyHandler.consumeMessageDismissPress()) {
+                messageOverlay.dismiss();
+            }
+            return;
+        }
+
         player.update();
         GrassOverlayLayer grass = overworldScene.getGrassOverlayLayer();
         if (grass != null) {
             grass.update(player);
+        }
+
+        if (keyHandler.consumeSignInteractPress() && !player.isMoving()) {
+            String msg = SignInteractionHelper.findSignMessage(overworldScene.getCurrentLocation(), player, this,
+                    overworldScene.getBackgroundTileLayer());
+            if (msg != null) {
+                messageOverlay.show(msg);
+                keyHandler.clearPendingMenuActions();
+            }
         }
     }
 
@@ -166,6 +183,8 @@ public class GamePanel extends JPanel implements Runnable {
         if (foreground != null) {
             foreground.draw(g2);
         }
+
+        messageOverlay.draw(g2, screenWidthInPixels, screenHeightInPixels);
 
         g2.dispose();
     }

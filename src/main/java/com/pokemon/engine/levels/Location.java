@@ -6,7 +6,7 @@ import java.util.List;
 import com.pokemon.gui.entities.EntityRender.Direction;
 
 /**
- * A place in the overworld: map layers, default spawn, and optional warps.
+ * A place in the overworld: map layers, default spawn, warps, and signs.
  */
 public final class Location {
 
@@ -17,9 +17,10 @@ public final class Location {
     private final int spawnWorldY;
     private final Direction spawnFacing;
     private final List<Warp> warps;
+    private final List<SignPost> signs;
 
     public Location(String id, String backgroundMapResource, String foregroundMapResource, int spawnWorldX,
-            int spawnWorldY, Direction spawnFacing, List<Warp> warps) {
+            int spawnWorldY, Direction spawnFacing, List<Warp> warps, List<SignPost> signs) {
         this.id = id;
         this.backgroundMapResource = backgroundMapResource;
         this.foregroundMapResource = foregroundMapResource;
@@ -27,6 +28,7 @@ public final class Location {
         this.spawnWorldY = spawnWorldY;
         this.spawnFacing = spawnFacing;
         this.warps = warps == null ? List.of() : List.copyOf(warps);
+        this.signs = signs == null ? List.of() : List.copyOf(signs);
     }
 
     public String getId() {
@@ -57,5 +59,9 @@ public final class Location {
 
     public List<Warp> getWarps() {
         return Collections.unmodifiableList(warps);
+    }
+
+    public List<SignPost> getSigns() {
+        return Collections.unmodifiableList(signs);
     }
 }

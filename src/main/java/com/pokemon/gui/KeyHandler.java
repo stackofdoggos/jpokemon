@@ -4,7 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 /**
- * Tracks WASD directional input and exposes pressed state flags to the game.
+ * Tracks WASD directional input and interact / menu actions (edge-triggered).
  */
 public class KeyHandler implements KeyListener {
 
@@ -12,6 +12,12 @@ public class KeyHandler implements KeyListener {
     private boolean downPressed;
     private boolean leftPressed;
     private boolean rightPressed;
+
+    /** Space or E: field interact (A button). Set on keyPressed, cleared by consume. */
+    private boolean interactPressPending;
+
+    /** Enter: often used to close message boxes. */
+    private boolean confirmPressPending;
 
     @Override
     public void keyPressed(KeyEvent e) {
@@ -25,6 +31,10 @@ public class KeyHandler implements KeyListener {
             leftPressed = true;
         } else if (keyCode == KeyEvent.VK_D) {
             rightPressed = true;
+        } else if (keyCode == KeyEvent.VK_SPACE || keyCode == KeyEvent.VK_E) {
+            interactPressPending = true;
+        } else if (keyCode == KeyEvent.VK_ENTER) {
+            confirmPressPending = true;
         }
     }
 
@@ -46,6 +56,35 @@ public class KeyHandler implements KeyListener {
     @Override
     public void keyTyped(KeyEvent e) {
         // we do not care ._.
+    }
+
+    /**
+     * Clears and returns true once per physical Space/E press (for reading signs).
+     */
+    public boolean consumeSignInteractPress() {
+        if (interactPressPending) {
+            interactPressPending = false;
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Clears and returns true if Space, E, or Enter was pressed (for closing UI).
+     */
+    public boolean consumeMessageDismissPress() {
+        if (interactPressPending || confirmPressPending) {
+            interactPressPending = false;
+            confirmPressPending = false;
+            return true;
+        }
+        return false;
+    }
+
+    /** Call when opening a blocking UI so stale key-edge flags do not auto-dismiss. */
+    public void clearPendingMenuActions() {
+        interactPressPending = false;
+        confirmPressPending = false;
     }
 
     public boolean isAnyDirectionKeyPressed() {

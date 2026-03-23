@@ -20,6 +20,9 @@ public final class LocationRegistry {
 
     static {
         int ts = GameConstants.SCALED_TILE_PIXELS;
+        List<SignPost> route101Signs = List.of(SignPost.atAnyPosition("0264",
+                "ROUTE 101\nIf you follow the path, you will reach OLDALE TOWN."));
+
         Location alt = new Location(
                 ROUTE_101_ALT,
                 "art/tilemaps/route101.txt",
@@ -27,7 +30,8 @@ public final class LocationRegistry {
                 25 * ts,
                 10 * ts,
                 Direction.DOWN,
-                List.of(new Warp(25, 9, ROUTE_101_MAIN)));
+                List.of(new Warp(25, 9, ROUTE_101_MAIN)),
+                route101Signs);
 
         Location main = new Location(
                 ROUTE_101_MAIN,
@@ -36,7 +40,8 @@ public final class LocationRegistry {
                 20 * ts,
                 10 * ts,
                 Direction.DOWN,
-                List.of(new Warp(16, 11, ROUTE_101_ALT)));
+                List.of(new Warp(16, 11, ROUTE_101_ALT)),
+                route101Signs);
 
         BY_ID.put(main.getId(), main);
         BY_ID.put(alt.getId(), alt);

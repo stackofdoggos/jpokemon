@@ -125,6 +125,14 @@ public class PlayerRender extends EntityRender {
         return this.worldY + this.boundingBox.y;
     }
 
+    public int getBoundingBoxWidth() {
+        return this.boundingBox.width;
+    }
+
+    public int getBoundingBoxHeight() {
+        return this.boundingBox.height;
+    }
+
     public void getPlayerImages() {
         try {
             for (int i = 0; i < NUM_WALK_SPRITES; i++) {

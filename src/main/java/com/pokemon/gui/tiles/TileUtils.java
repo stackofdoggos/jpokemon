@@ -16,6 +16,11 @@ public class TileUtils {
         private static final String[] IDS_PATH = { "0058", "0146", "0234", "0059", "0147", "0235", "0060",
                         "0148", "0236" };
 
+        /** Route 101 signpost tile id ({@code art/tiles/exterior/0264.png}). */
+        public static final String SIGN_TEXTURE_ID_ROUTE_101 = "0264";
+
+        private static final String[] IDS_SIGNPOST = { SIGN_TEXTURE_ID_ROUTE_101 };
+
         // PNG transition sequence timing (n frames per stage)
         public static final int GRASS_TRANSITION_FRAMES_PER_IMAGE = 6;
         // How many frames to hold the first stage (entering grass) before advancing
@@ -41,6 +46,10 @@ public class TileUtils {
                 if (arrayContains(IDS_PATH, textureId))
                         return TileType.PATH;
                 return TileType.UNKNOWN;
+        }
+
+        public static boolean isSignPostTextureId(String textureId) {
+                return textureId != null && arrayContains(IDS_SIGNPOST, textureId);
         }
 
         private static boolean arrayContains(String[] ids, String target) {
