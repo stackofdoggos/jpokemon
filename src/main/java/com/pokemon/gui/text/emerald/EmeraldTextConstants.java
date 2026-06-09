@@ -38,14 +38,27 @@ public final class EmeraldTextConstants {
     public static final int FONT_NORMAL_LETTER_SPACING = 0;
     public static final int FONT_NORMAL_LINE_SPACING = 0;
 
+    /** Visible text lines in the standard field window (32 px / 16 px line height). */
+    public static final int VISIBLE_LINES = 2;
+
+    /** Top of the dialogue frame strip (tile row 14) on the 240×160 field. */
+    public static final int FRAME_TOP_Y = (WINDOW_TILEMAP_TOP - 1) * NATIVE_TILE_PX;
+
+    /** Pixels scrolled per frame when advancing a page ({@code ScrollWindow}). */
+    public static final int SCROLL_SPEED_PX = 4;
+
     /** Text printer initial cursor ({@code AddTextPrinterParameterized2}). */
     public static final int TEXT_ORIGIN_X = 0;
     public static final int TEXT_ORIGIN_Y = 1;
 
-    /** Field message default colors ({@code AddTextPrinterForMessage}). */
-    public static final Color TEXT_FG = new Color(0x30, 0x50, 0x50);
-    public static final Color TEXT_BG = new Color(0xe8, 0xf8, 0xe8);
-    public static final Color TEXT_SHADOW = new Color(0x70, 0x90, 0x90);
+    /**
+     * Field message colors: palette indices 1/2/3 of the message box palette
+     * (pret {@code graphics/text_window/message_box.png}) — white background,
+     * dark gray foreground, light gray shadow.
+     */
+    public static final Color TEXT_FG = new Color(0x60, 0x60, 0x60);
+    public static final Color TEXT_BG = new Color(0xf8, 0xf8, 0xf8);
+    public static final Color TEXT_SHADOW = new Color(0xd0, 0xd0, 0xc8);
 
     /** Mirrors {@code OPTIONS_TEXT_SPEED_*} + {@code sTextSpeedFrameDelays} (frames between glyphs). */
     public enum TextSpeed {

@@ -9,9 +9,9 @@ import javax.imageio.ImageIO;
 import com.pokemon.resources.GameResources;
 
 /**
- * Draws {@link EmeraldTextAssetPaths#DIALOGUE_FRAME_PNG} at native coordinates
- * (0,&nbsp;0) with its natural pixel size. Use a composite that matches the 240-wide
- * field layout described on {@link EmeraldTextAssetPaths#DIALOGUE_FRAME_PNG}. If the
+ * Draws {@link EmeraldTextAssetPaths#DIALOGUE_FRAME_PNG} (a 240-wide strip
+ * generated from pokeemerald's {@code WindowFunc_DrawDialogueFrame} tiling) at
+ * native coordinates (0, {@link EmeraldTextConstants#FRAME_TOP_Y}). If the
  * image is missing, delegates to {@link PlaceholderDialogueFrameRenderer}.
  */
 public final class ImageDialogueFrameRenderer implements EmeraldDialogueFrameRenderer {
@@ -40,7 +40,7 @@ public final class ImageDialogueFrameRenderer implements EmeraldDialogueFrameRen
         if (image == null) {
             fallback.drawFrame(g);
         } else {
-            g.drawImage(image, 0, 0, null);
+            g.drawImage(image, 0, EmeraldTextConstants.FRAME_TOP_Y, null);
         }
     }
 }

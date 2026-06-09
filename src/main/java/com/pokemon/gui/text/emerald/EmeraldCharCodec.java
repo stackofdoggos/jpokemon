@@ -57,7 +57,8 @@ public final class EmeraldCharCodec {
             case '(' -> EmeraldCharacters.CHAR_LEFT_PAREN;
             case ')' -> EmeraldCharacters.CHAR_RIGHT_PAREN;
             case '"' -> EmeraldCharacters.CHAR_DBL_QUOTE_LEFT;
-            case '\'' -> EmeraldCharacters.CHAR_SGL_QUOTE_LEFT;
+            // Apostrophes ("you've") use the closing quote glyph in Emerald.
+            case '\'' -> EmeraldCharacters.CHAR_SGL_QUOTE_RIGHT;
             default -> EmeraldCharacters.CHAR_SPACE;
         };
     }

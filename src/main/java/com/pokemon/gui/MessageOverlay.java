@@ -48,20 +48,26 @@ public class MessageOverlay {
         return visible;
     }
 
+    /** True while the bouncing arrow is shown (page full or all text printed). */
+    public boolean isAwaitingInput() {
+        return visible && printer.isWaitingForInput();
+    }
+
     /**
-     * Space, E, or Enter: while printing, skip to end of text; while waiting on a
-     * mid-string pause, continue; when finished, close the overlay.
+     * Space, E, or Enter: while printing, finish the current page instantly;
+     * while waiting on a full page, scroll to the next line; when all text has
+     * been shown, close the overlay.
      */
     public void onAdvancePressed() {
         if (!visible) {
             return;
         }
-        if (printer.isStuckOnPause()) {
-            printer.resolvePause();
-        } else if (!printer.isDonePrinting()) {
-            printer.skipToEnd();
-        } else {
+        if (printer.isDonePrinting()) {
             dismiss();
+        } else if (printer.isWaitingForInput()) {
+            printer.advancePage();
+        } else {
+            printer.finishCurrentPage();
         }
     }
 
@@ -83,11 +89,15 @@ public class MessageOverlay {
         g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_NEAREST_NEIGHBOR);
 
         AffineTransform saved = g2.getTransform();
+        java.awt.Shape savedClip = g2.getClip();
         g2.scale(EmeraldTextConstants.SCREEN_SCALE, EmeraldTextConstants.SCREEN_SCALE);
         frameRenderer.drawFrame(g2);
         // Glyph positions match the window pixel buffer (origin 0,0); map to screen like BlitBitmapToWindow.
         g2.translate(EmeraldTextConstants.INNER_TOPLEFT_SCREEN_X, EmeraldTextConstants.INNER_TOPLEFT_SCREEN_Y);
+        // Clip like the GBA window so scrolled lines disappear at the window edge.
+        g2.clipRect(0, 0, EmeraldTextConstants.INNER_WIDTH_PX, EmeraldTextConstants.INNER_HEIGHT_PX);
         printer.draw(g2);
+        g2.setClip(savedClip);
         g2.setTransform(saved);
 
         if (oldTextAa != null) {
